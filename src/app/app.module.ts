@@ -71,6 +71,7 @@ import { TableComponent } from './table/table.component';
     MatTableModule, 
     MatSortModule,
  
+
     
   ],
   providers: [EzxpressService, MapService],

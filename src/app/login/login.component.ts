@@ -46,9 +46,10 @@ export class LoginComponent implements OnInit {
         this.customerService.findCustomer(this.userName, this.password);
         debugger;
         if (this.customerService.currentCustomer) {
+          //missing .next when login sucsess 
+          //this.customerServise.singleCustomerObservable.next(this.customerService.currentCustomer);
           console.log(this.customerService.currentCustomer.firstName);
           this.customerService.currentCustomer.active = true;
-          
           this.customerService.updateUserConnectionStatus(this.customerService.currentCustomer);
           this.customerService.singleCustomerObservable.subscribe(() => {
             this.customer = this.customerService.currentCustomer;

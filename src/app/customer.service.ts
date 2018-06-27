@@ -20,9 +20,11 @@ export class CustomerService {
   private singleCustomerSubject: Subject<Customer> = new Subject<Customer>();
 
   constructor(private mapService: MapService, private http: HttpClient) {
-    this.singleCustomerObservable = this.singleCustomerSubject.asObservable();
     this.connectedUserSubject = new Subject<string>();
     this.connectedUserUpdated = this.connectedUserSubject.asObservable();
+    this.singleCustomerSubject = new Subject<Customer>();
+    this.singleCustomerObservable = this.singleCustomerSubject.asObservable();
+ 
   }
 
   getCustomers()  {

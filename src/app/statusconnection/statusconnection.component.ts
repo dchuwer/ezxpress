@@ -13,12 +13,14 @@ export class StatusconnectionComponent implements OnInit {
   firstName: string;
   customer: Customer = new Customer();
 
-  constructor(private customerService: CustomerService, private motoService: MotoService) { }
+  constructor(private customerService: CustomerService, private motoService: MotoService) { 
+    this.customerService.singleCustomerObservable.subscribe((newCustomer) => {
+      this.customer = newCustomer;
+      console.log(this.customer.firstName);
+    });
+  }
 
   ngOnInit() {
-    debugger;
-    this.customer = this.customerService.getUserConnected();
-    console.log(this.customer.firstName);
     this.customerService.singleCustomerObservable.subscribe((newCustomer) => {
       this.customer = newCustomer;
       console.log(this.customer.firstName);

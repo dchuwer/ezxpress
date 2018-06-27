@@ -1,0 +1,30 @@
+html {
+    width: 50%;
+}
+
+.form_login {
+    width: 250px;
+    height: 270px;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
+ }
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    padding: 0!important;
+    background-color: dodgerblue; 
+}
+
+button  {
+    background-color: dodgerblue;
+}
+/*
+.example-container  {
+    width: 50%;
+}
+*/

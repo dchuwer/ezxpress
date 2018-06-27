@@ -9,6 +9,7 @@ class Customer {
         let customer = DA.connection.define('customers', {
             customerId: { type: Sequelize.INTEGER, primaryKey: true },
             email: Sequelize.STRING,
+            password: Sequelize.STRING,
             phoneNumber: Sequelize.STRING,
             firstName: Sequelize.STRING,
             lastName: Sequelize.STRING,
@@ -18,20 +19,28 @@ class Customer {
                 freezeTableName: true // Model tableName will be the same as the model name
             });
 
-           //customer.belongsTo(Company.model, { foreignKey: 'company_id' });
-           // Company.model.hasMany(customer, { foreignKey: 'company_id' });
-
         return customer;
     }
     getAll() {
         return this.model.findAll();
     }
+
+    getCustomer(emailValue, passwordValue) {
+        debugger;
+        console.log(emailValue, passwordValue)
+        return this.model.find( {where : {email : emailValue,
+                                        password: passwordValue}
+                                });
+    }
+
     create(data){
         return this.model.create(data);
     }
+
     update(newData,id){
         return this.model.update(newData,{where:{customerId: id}});
     }
+
     delete(id){
         return this.model.destroy({ where:{customerId: id}
           });

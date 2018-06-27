@@ -6,9 +6,21 @@ router.get('/', (req, res) => {
     console.log('inside get');
     customer.getAll().then(data => {
         console.log('get from customer Api'+ data);
-    res.send(JSON.stringify(data));
+        res.send(JSON.stringify(data));
     })
 });
+
+router.get('/customer/:email/:password', async (req, res) => {
+    // debugger;
+    console.log(req.params.email)
+    customer.getCustomer(req.params.email, req.params.password).then(data => {
+      console.log(data)
+      //res.send(data);
+      res.send(JSON.stringify(data));
+    }, err => {
+      console.error(err)
+    });
+})
 
 router.post('/add', (req, res) => {
     customer.create(req.body).then(data => {

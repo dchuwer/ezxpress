@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
     res.send(JSON.stringify(data));
     })
 });
+
 router.get('/:id', (req, res) => {
     var motoBoy = motoboy.getOneById(req.params.id).then((data)=>{
         console.log(data)
@@ -14,13 +15,27 @@ router.get('/:id', (req, res) => {
     }).catch((error) => {
         res.send("error:" + error)
     });
-  });
+});
+
+router.get('/customer/:email/:password', async (req, res) => {
+    // debugger;
+    console.log(req.params.email);
+    console.log(req.params.password);
+    customer.getMotoBoy(req.params.email, req.params.password).then(data => {
+      console.log(data)
+      //res.send(data);
+      res.send(JSON.stringify(data));
+    }, err => {
+      console.error(err)
+    });
+})
 
 router.post('/add', (req, res) => {
     motoboy.create(req.body).then(data => {
     res.send(JSON.stringify(data));
   })
 });
+
 router.put('/update/:id', (req, res) => {
     motoboy.update(req.body.motoboy, req.params.id).then(() => {
         res.send(JSON.stringify(req.body.motoboy));
@@ -28,25 +43,6 @@ router.put('/update/:id', (req, res) => {
         res.send("error:" + error)
     });
 });
-
-
-
-
-//  router.put('/update/:id',(req,res)=>{
-//      console.log('inside API : '+ req.params.id + req.body.motoboy);
-//      motoboyToUpdate = req.body.motoboy;
-//      console.log (motoboyToUpdate);
-//      motoboyId = req.params.Id;
-//      console.log (req.params.id);
-//      motoboy.update(motoboyToUpdate,motoboy).then(data => {
-//         res.send(JSON.stringify(data));
-//         })  
-//         err => {
-//             console.error(err)
-//           } 
-//  });
-
- 
 
 router.delete('/delete/:id', (req, res) => {
     motoboy.delete(req.params.id).then(data => {

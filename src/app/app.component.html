@@ -1,11 +1,17 @@
 
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-indigo.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+
+
+
 <div class="w3-theme" id="container">
 <div class="head">
-    <h1>EzExpress</h1>
+    <app-statusconnection></app-statusconnection>
+    <h1>Ezxpress</h1>
     <h2>Because it's easy to receive your packet with our service</h2>
 </div>
+
+<!--
 <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon >more_vert</mat-icon>
   </button>
@@ -28,6 +34,41 @@
     </button>
   </mat-menu>
 </div>
+-->
+
+<mat-toolbar class="w3-theme-l2">
+    <span class="fill-remaining-space" color="accent"></span>
+    <button mat-button routerLink="/">
+        <mat-icon >home</mat-icon>
+        <span >Home Page</span>
+    </button>
+    <button mat-button routerLink="/add-customer" disabled>
+        <mat-icon >add_to_photos</mat-icon>
+        <span >New Customer</span>
+    </button>
+    <button mat-button routerLink="/add-motoboy" disabled>
+        <mat-icon >motorcycle</mat-icon>
+        <span >Register Motoboy</span>
+    </button>
+    <button mat-button routerLink="/add-delivery" disabled>
+        <mat-icon >send</mat-icon>
+        <span >Xpress Delivery</span>
+    </button>
+    <button mat-button routerLink="/sign-up-customer">
+        <mat-icon >how_to_reg</mat-icon>
+        <span >Sign Up Customer</span>
+    </button>
+    <button mat-button routerLink="/sign-up-delivery-man">
+        <mat-icon >motorcycle</mat-icon>
+        <span >Sign Up Motoboy</span>
+    </button>
+    <button mat-button routerLink="/login-form">
+        <mat-icon >perm_identity</mat-icon>
+        <span >Login</span>
+    </button>
+ </mat-toolbar>
+
+
 <router-outlet></router-outlet>
 
 

@@ -1,58 +1,58 @@
 insert into customers
-( email,phoneNumber,firstName,lastName,address,active)
+( email, password, phoneNumber,firstName,lastName,address,active)
 values
-('morangozlan@hotmail.com','0524340050','Moran','Gozlan','Tel Aviv',true);
+('morangozlan@hotmail.com', '1234', '0524340050','Moran','Gozlan','Tel Aviv',true);
 
 insert into customers
-( email,phoneNumber,firstName,lastName,address,active)
+( email, password, phoneNumber,firstName,lastName,address,active)
 values
-('morangozlan@hotmail.com','0524340051','Liron','Dror','Tel Aviv',true);
+('morangozlan@hotmail.com', '1234', '0524340051','Liron','Dror','Tel Aviv',true);
 insert into customers
-( email,phoneNumber,firstName,lastName,address,active)
+( email, password, phoneNumber,firstName,lastName,address,active)
 values
-('morangozlan@hotmail.com','0524340052','Tal','Levi','Tel Aviv',true);
+('morangozlan@hotmail.com', '1234', '0524340052','Tal','Levi','Tel Aviv',true);
 insert into customers
-( email,phoneNumber,firstName,lastName,address,active)
+( email,password, phoneNumber,firstName,lastName,address,active)
 values
-('morangozlan@hotmail.com','0524340062','Lior','Aviv','Tel Aviv',true);
+('morangozlan@hotmail.com', '1234', '0524340062','Lior','Aviv','Tel Aviv',true);
 
 insert into customers
-( email,phoneNumber,firstName,lastName,address,active)
+( email,password, phoneNumber,firstName,lastName,address,active)
 values
-('morangozlan88@gmail.com','0524340054','Liam','Tal','Tel Aviv',true);
+('morangozlan88@gmail.com','1234', '0524340054','Liam','Tal','Tel Aviv',true);
 
 insert into customers
-( email,phoneNumber,firstName,lastName,address,active)
+( email,password, phoneNumber,firstName,lastName,address,active)
 values
-('morangozlan@hotmail.com','0524340055','Lian','Gil','Tel Aviv',true);
+('morangozlan@hotmail.com','1234', '0524340055','Lian','Gil','Tel Aviv',true);
 
 insert into customers
-( email,phoneNumber,firstName,lastName,address,active)
+( email,password, phoneNumber,firstName,lastName,address,active)
 values
-('morangozlan@hotmail.com','0524340056','Bob','Fik','Tel Aviv',true);
+('morangozlan@hotmail.com','1234', '0524340056','Bob','Fik','Tel Aviv',true);
 
 insert into customers
-( email,phoneNumber,firstName,lastName,address,active)
+( email,password, phoneNumber,firstName,lastName,address,active)
 values
-('morangozlan@hotmail.com','0524340057','David','Gir','Tel Aviv',true);
-
-insert into motoboys
-(idNumber,firstName,lastName,email,phoneNumber,rate,active)
-values
-('301459848','Tamar','Dir','morangozlan@hotmail.com','053-4740090',4,true);
+('morangozlan@hotmail.com','1234', '0524340057','David','Gir','Tel Aviv',true);
 
 insert into motoboys
-(idNumber,firstName,lastName,email,phoneNumber,rate,active)
+(idNumber,firstName,lastName,email,password, phoneNumber,rate,active)
 values
-('301459848','Kim','Dror','morangozlan@hotmail.com','053-4740090',3,true);
+('301459848','Tamar','Dir','morangozlan@hotmail.com','1234','053-4740090',4,true);
+
 insert into motoboys
-(idNumber,firstName,lastName,email,phoneNumber,rate,active)
+(idNumber,firstName,lastName,email,password, phoneNumber,rate,active)
 values
-('301459848','Lavi','Dan','morangozlan@hotmail.com','053-4740090',5,true);
+('301459848','Kim','Dror','morangozlan@hotmail.com','1234','053-4740090',3,true);
 insert into motoboys
-(idNumber,firstName,lastName,email,phoneNumber,rate,active)
+(idNumber,firstName,lastName,email,password, phoneNumber,rate,active)
 values
-('301459848','Haim','Hen','morangozlan@hotmail.com','053-4740090',4,true);
+('301459848','Lavi','Dan','morangozlan@hotmail.com','1234','053-4740090',5,true);
+insert into motoboys
+(idNumber,firstName,lastName,email,password, phoneNumber,rate,active)
+values
+('301459848','Haim','Hen','morangozlan@hotmail.com','1234', '053-4740090',4,true);
 
 insert into orders
 (customerId,motoboyId,price,orderDate,collectDate,deliveryDate,contactDestination,phoneDestination,deliveryType,status,active)

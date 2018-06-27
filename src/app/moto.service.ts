@@ -7,13 +7,11 @@ import { Observable, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class MotoService {
 
   motoBoys: MotoBoy[] = [];
   currentMotoBoy: MotoBoy = new MotoBoy();
-
- 
-
 
   public singleMotoObservable: Observable<MotoBoy>;
   private singleMotoSubject: Subject<MotoBoy> = new Subject<MotoBoy>();
@@ -31,14 +29,21 @@ export class MotoService {
      })
   }
 
+  findMotoBoy(emailValue, passwordValue) {
+    let data = {email: emailValue, password: passwordValue};
+    this.http.get<MotoBoy>('motoboysApi/', {params: data}).subscribe(data => {
+      this.currentMotoBoy = data[0];
+      this.singleMotoSubject.next(data[0])
+      console.log(this.currentMotoBoy)
+     })
+  }
+
   shareLiveLocation(id) {
     this.singleMotoObservable.subscribe(()=>{
       setInterval(this.getMotoCurrentLocation(),5000);
     })
     this.getMoto(id);
   }
-
-  
 
   putMotoLocation(currentMotoBoy) {
     console.log("d")
@@ -47,7 +52,6 @@ export class MotoService {
       //update motoboys array
       this.currentMotoBoy = data;
       this.singleMotoSubject.next(data);
-     
     })
   }
   
@@ -59,22 +63,20 @@ export class MotoService {
       //update motoboys array
       this.currentMotoBoy = data;
       this.singleMotoSubject.next(data);
-     
     })
   }
 
+  getMotoCurrentLocation(){
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.currentMotoBoy.latitude = position.coords.latitude;
+        this.currentMotoBoy.longitude = position.coords.longitude;
+        this.reverseAddress(this.currentMotoBoy.latitude, this.currentMotoBoy.longitude);
+        this.putMotoLocation(this.currentMotoBoy)
 
-getMotoCurrentLocation(){
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      this.currentMotoBoy.latitude = position.coords.latitude;
-      this.currentMotoBoy.longitude = position.coords.longitude;
-      this.reverseAddress(this.currentMotoBoy.latitude, this.currentMotoBoy.longitude);
-      this.putMotoLocation(this.currentMotoBoy)
-
-    })
-  }    
-}
+      })
+    }    
+  }
 
   checkGoogleAddress(localAddress) {
     var geocoder: google.maps.Geocoder = new google.maps.Geocoder;
@@ -96,7 +98,6 @@ getMotoCurrentLocation(){
       //update motoboys array?
       this.currentMotoBoy = data;
     })
-
   }
 
 }

@@ -3,12 +3,12 @@ use ezxpress;
 CREATE TABLE customers (
   customerId INT AUTO_INCREMENT PRIMARY KEY, 
   email VARCHAR(40),
-  phoneNumber VARCHAR(20) ,
+  password VARCHAR(40),
+  phoneNumber VARCHAR(20),
   firstName VARCHAR(20),
   lastName VARCHAR(20), 
   address VARCHAR(20),
   active BOOLEAN
-  
 );
 
 CREATE TABLE motoboys (
@@ -17,6 +17,7 @@ CREATE TABLE motoboys (
   firstName VARCHAR(20),
   lastName VARCHAR(20),
   email VARCHAR(40),
+  password VARCHAR(40),
   phoneNumber VARCHAR(20) ,
   rate INT,
   photo  VARCHAR(20),
@@ -45,6 +46,7 @@ CREATE TABLE orders (
  FOREIGN KEY(customerId) REFERENCES customers(customerId),
  FOREIGN KEY(motoboyId) REFERENCES motoboys(motoboyId)
 );
+
 CREATE TABLE comments (
  commentId INT  not null AUTO_INCREMENT PRIMARY KEY, 
  comment  VARCHAR(20),

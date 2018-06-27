@@ -9,16 +9,20 @@ import { Observable, Subject } from 'rxjs';
 })
 export class CustomerService {
 
-  NewCustomer = new Customer();
+  newCustomer = new Customer();
   customers
   currentCustomer: Customer = new Customer();
+  firstName: string;
 
-
+  public connectedUserUpdated : Observable<string>;
+  private connectedUserSubject: Subject<string>;
   public singleCustomerObservable: Observable<Customer>;
   private singleCustomerSubject: Subject<Customer> = new Subject<Customer>();
 
   constructor(private mapService: MapService, private http: HttpClient) {
     this.singleCustomerObservable = this.singleCustomerSubject.asObservable();
+    this.connectedUserSubject = new Subject<string>();
+    this.connectedUserUpdated = this.connectedUserSubject.asObservable();
   }
 
   getCustomers()  {
@@ -34,6 +38,24 @@ export class CustomerService {
       console.log(this.currentCustomer)
       console.log("a")
      })
+  }
+
+  findCustomer(emailValue, passwordValue) {
+    let data = {email: emailValue, password: passwordValue};
+    this.http.get<Customer>('customersApi/', {params: data}).subscribe(data => {
+      this.currentCustomer = data[0];
+      this.singleCustomerSubject.next(data[0])
+      console.log(this.currentCustomer)
+     })
+  }
+
+  updateUserConnectionStatus(customer) {
+    this.currentCustomer = customer;
+    this.singleCustomerSubject.next(this.currentCustomer);
+  }
+
+  getUserConnected() {
+    return this.currentCustomer;
   }
 
   addNewClient(newClient : Customer){
@@ -57,47 +79,6 @@ export class CustomerService {
      
     })
   }
-  // shareLiveLocation(id) {
-  //   this.singleCustomerObservable.subscribe(()=>{
-  //     setInterval(this.getMotoCurrentLocation(),5000);
-  //   })
-  //   this.getMoto(id);
-  // }
-
-  
-
-  // putMotoLocation(currentCustomer) {
-  //   console.log("d")
-  //   let id = currentCustomer.motoboyId
-  //   this.http.put<Customer>('motoboysApi/update/' + id, { motoboy: currentCustomer }).subscribe((data) => {
-  //     //update motoboys array
-  //     this.currentCustomer = data;
-  //     this.singleCustomerSubject.next(data);
-     
-  //   })
-  // }
-
-// getMotoCurrentLocation(){
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(position => {
-//       this.currentCustomer.latitude = position.coords.latitude;
-//       this.currentCustomer.longitude = position.coords.longitude;
-//       this.reverseAddress(this.currentCustomer.latitude, this.currentCustomer.longitude);
-//       this.putMotoLocation(this.currentCustomer)
-
-//     })
-//   }    
-// }
-
-  // checkGoogleAddress(localAddress) {
-  //   var geocoder: google.maps.Geocoder = new google.maps.Geocoder;
-  //   console.log(localAddress)
-  //   geocoder.geocode({ address: localAddress }, (results) => {
-  //     this.currentCustomer.latitude = Number(results[0].geometry.location.lat);
-  //     this.currentCustomer.longitude = Number(results[0].geometry.location.lat);
-  //     console.log(this.currentCustomer.latitude)
-  //   })
-  // }
 
   reverseAddress(lat, lng) {
     this.mapService.reverseAddress(lat, lng);

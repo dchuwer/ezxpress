@@ -2,7 +2,7 @@
     <mat-form-field>
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
       </mat-form-field>
-      <mat-icon (click)="refresh()">refresh</mat-icon>
+      <button (click)="refresh()">refresh</button>
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="orderId">
       <mat-header-cell *matHeaderCellDef> Order Id </mat-header-cell>
@@ -10,11 +10,11 @@
     </ng-container>
     <ng-container matColumnDef="customerId">
       <mat-header-cell *matHeaderCellDef> Customer </mat-header-cell>
-      <mat-cell *matCellDef="let order"> {{order.customer.firstName}} </mat-cell>
+      <mat-cell *matCellDef="let order"> <div *ngIf="order.customerId != null">{{order.customer.firstName}}</div> </mat-cell>
     </ng-container>
     <ng-container matColumnDef="motoboyId">
       <mat-header-cell *matHeaderCellDef> Moto Boy </mat-header-cell>
-      <mat-cell *matCellDef="let order"> {{order.motoboy.firstName}} </mat-cell>
+      <mat-cell *matCellDef="let order"> <div *ngIf="order.customerId != null">{{order.motoboy.firstName}}</div> </mat-cell>
     </ng-container>
     <ng-container matColumnDef="localAddress">
       <mat-header-cell *matHeaderCellDef> Local Address </mat-header-cell>

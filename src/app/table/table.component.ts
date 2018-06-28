@@ -37,7 +37,7 @@ export class TableComponent implements OnInit {
     })
   }
   handleAsignToOrder(order) {
-this.ordersService.assignToOrder(order,this.currentMotoBoy);
+    this.ordersService.assignToOrder(order, this.currentMotoBoy);
   }
   applyFilter(filterValue: string) {
     console.log(filterValue)
@@ -45,7 +45,7 @@ this.ordersService.assignToOrder(order,this.currentMotoBoy);
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
-  refresh(){
+  refresh() {
     this.ordersService.getAllOrders();
   }
 }

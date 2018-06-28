@@ -15,21 +15,21 @@ export class OrdersService {
   constructor(private http: HttpClient) {
     this.allOrdersObservable = this.allOrdersSbject.asObservable();
     this.getAllOrders()
-   }
+  }
 
-   private OrdersServiceUrl = '/ordersApi'
+  private OrdersServiceUrl = '/ordersApi'
 
-   getAllOrders(): void {
+  getAllOrders(): void {
     this.http.get<Order[]>(this.OrdersServiceUrl).subscribe((orders) => {
       this.allOrders = orders;
       console.log(orders)
       this.allOrdersSbject.next(orders)
     })
   }
-  
-  addNewOrder(order){
+
+  addNewOrder(order) {
     console.log("inside Add")
-    this.http.post<Order>('ordersApi/add',order).subscribe(() => {
+    this.http.post<Order>('ordersApi/add', order).subscribe(() => {
       // this.allOrders.push(order);
       this.getAllOrders();
     })
@@ -40,9 +40,9 @@ export class OrdersService {
   //   })
   // }
 
-  
 
-  getOrderById(id: number): void{
+
+  getOrderById(id: number): void {
     this.http.get<Order>(this.OrdersServiceUrl + `/${id}`).subscribe((order) => {
       // this.selectedOrder = order;
       // this.selectedOrderSubject.next(order)
@@ -59,8 +59,8 @@ export class OrdersService {
     })
   }
 
-  sendSmsToCustomer(order: Order){
-     this.http.post('/send', {
+  sendSmsToCustomer(order: Order) {
+    this.http.post('/send', {
       from: 'Acme Inc',
       to: order.phoneNumber,
       text: 'motoBoy on the way!'
@@ -76,10 +76,10 @@ export class OrdersService {
       this.updateOrder(order, motoBoy)
       // this.sendSmsToCustomer(order);----------------------------------SMS----------------------
       //Needs to be define 
-    
+
     }
   }
-  
+
   cancelAssignToOrder(order) {
     order.motoboy = null;
     order.status = 1;

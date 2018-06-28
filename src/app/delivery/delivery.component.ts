@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, NgZone} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { Order } from '../Order';
 import { MaprouteComponent } from '../maproute/maproute.component'
 import { MapService } from '../map.service';
@@ -17,100 +17,84 @@ import { MotoService } from '../moto.service';
 })
 export class DeliveryComponent implements OnInit {
   @ViewChild('search') public searchElement: ElementRef;
-  @ViewChild(MaprouteComponent) mapRoute: MaprouteComponent; 
+  @ViewChild(MaprouteComponent) mapRoute: MaprouteComponent;
 
-localAddress : string
+  localAddress: string
 
   order: Order;
-  
-  constructor(private orderService : OrdersService, private mapService: MapService, 
-    private motoService: MotoService, private mapsApiLoader: MapsAPILoader, private ngZone: NgZone,
-     public dialog: MatDialog)
-  { 
-        
-    this.order = new Order();
-    this.mapService.addressUpdated.subscribe( (data) => {
-      this.order.localAddress = data 
-      })
-    
 
-    
+  constructor(private orderService: OrdersService, private mapService: MapService,
+    private motoService: MotoService, private mapsApiLoader: MapsAPILoader, private ngZone: NgZone,
+    public dialog: MatDialog) {
+
+    this.order = new Order();
+    this.mapService.addressUpdated.subscribe((data) => {
+      this.order.localAddress = data
+    })
   }
 
-  setValue(value){
+  setValue(value) {
     this.order.deliveryType = value;
   }
 
-  calculateRate(){
+  calculateRate() {
     console.log(localAddress)
-    
-   
-    var localAddress = new google.maps.LatLng(this.order.latitudeOriginAddress,this.order.longitudeDestAddress)
+
+
+    var localAddress = new google.maps.LatLng(this.order.latitudeOriginAddress, this.order.longitudeDestAddress)
     var destAddress = new google.maps.LatLng(this.order.latitudeDestAddress, this.order.longitudeDestAddress)
     var travelway = google.maps.TravelMode.DRIVING
     var directionsService = new google.maps.DirectionsService();
-  
+
     var directionsRequest = {
       origin: localAddress,
       destination: destAddress,
-      travelMode: travelway, 
+      travelMode: travelway,
       avoidHighways: true
     }
     directionsService.route(directionsRequest, (result, status) => {
       //if (status === 'OK') 
-        
-        var dist = result.routes[0].legs[0].distance.value
-        
-        if (this.order.deliveryType == "envelope") 
-           var multPrice = 0.005
-        else
-           var multPrice = 0.007
-        this.order.price = (dist) * multPrice;
-        
-        this.mapRoute.showRoutes(result)
-    }) 
+
+      var dist = result.routes[0].legs[0].distance.value
+
+      if (this.order.deliveryType == "envelope")
+        var multPrice = 0.005
+      else
+        var multPrice = 0.007
+      this.order.price = (dist) * multPrice;
+
+      this.mapRoute.showRoutes(result)
+    })
   }
 
-  confirmOrder(){
+  confirmOrder() {
     this.order.orderDate = new Date();
-    console.log( this.orderService.addNewOrder(this.order))
-   
+    console.log(this.orderService.addNewOrder(this.order))
+
     let dialogRef = this.dialog.open(OrderDialogComponent, {
       width: '500px'
-     
     })
 
-    dialogRef.afterClosed().subscribe( result => {
-      this.motoService.getClosesMoto(this.order.latitudeOriginAddress,this.order.longitudeOriginAddress)
-      
+    dialogRef.afterClosed().subscribe(result => {
+      this.motoService.getClosesMoto(this.order.latitudeOriginAddress, this.order.longitudeOriginAddress)
     });
-
-        
   }
-
-  
 
   ngOnInit() {
 
-    this.mapsApiLoader.load().then( () => 
-  {
-    let autocomplete = new google.maps.places.Autocomplete(this.searchElement.nativeElement, {types:["address"]})
-    autocomplete.addListener("place_changed", () => {
-      this.ngZone.run( () => {
-        let place : google.maps.places.PlaceResult = autocomplete.getPlace();
-        if (place.geometry === undefined || place.geometry === null){
-          return
-        }
-        this.mapService.latLngSubject.next({lat: place.geometry.location.lat(), lng:place.geometry.location.lng()} )
-        this.order.latitudeOriginAddress = place.geometry.location.lat();
-        this.order.longitudeOriginAddress = place.geometry.location.lng();
-        
-          
+    this.mapsApiLoader.load().then(() => {
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElement.nativeElement, { types: ["address"] })
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+          if (place.geometry === undefined || place.geometry === null) {
+            return
+          }
+          this.mapService.latLngSubject.next({ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() })
+          this.order.latitudeOriginAddress = place.geometry.location.lat();
+          this.order.longitudeOriginAddress = place.geometry.location.lng();
+        })
       })
     })
-  })
-    
-  }   
-
-
+  }
 }

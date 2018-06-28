@@ -4,12 +4,13 @@ const order = require('../DataAccsess/orders');
 
 
 router.get('/', (req, res) => {
-    order.getAll().then(data => {
+    order.getOrders(req.user).then(data => {
         res.send(JSON.stringify(data));
     }).catch((error) => {
         res.send("error:" + error)
     });
 });
+
 
 router.post('/add', (req, res) => {
     order.create(req.body).then(data => {

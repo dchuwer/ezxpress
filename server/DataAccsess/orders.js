@@ -42,9 +42,19 @@ class Order {
     }
 
 
-    getAll() {
+    getOrders() {
+
         return this.model.findAll({ include: [Customer.model, Motoboy.model] });
+
     }
+    // getOrders(user) {
+    //     if(user.customerId != null ){
+    //         return this.model.findAll({ include: [Customer.model, Motoboy.model], where: {statusId: 1} });
+    //     }
+    //     if(user.motoboyId != null){
+    //         return this.model.findAll({ include: [Customer.model, Motoboy.model], where: {customerId: user.customerId} });
+    //     }
+    // }
     create(data) {
         return this.model.create(data);
     }

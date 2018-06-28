@@ -53,7 +53,6 @@ export class OrdersService {
     let id = order.orderId
     this.http.put<Order>('ordersApi/update/' + id, { order: order }).subscribe(() => {
       this.getAllOrders();
-      //update motoboys array
       // this.currentMotoBoy = data;
       // this.singleMotoSubject.next(data);
     })
@@ -85,5 +84,9 @@ export class OrdersService {
     order.status = 1;
     //Needs to be define 
     //sendNotificationToclient(order){}
+  }
+
+  getUserTypeFromServer(){
+    
   }
 }

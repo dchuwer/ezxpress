@@ -1,5 +1,5 @@
 use ezxpress;
-ALTER TABLE orders ADD CONSTRAINT status FOREIGN KEY (status) REFERENCES status(status);
+ALTER TABLE orders ADD CONSTRAINT status FOREIGN KEY (statusId) REFERENCES status(status);
 
  CREATE TABLE status (
  status INT  , 

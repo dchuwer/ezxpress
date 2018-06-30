@@ -41,7 +41,9 @@ export class NewclientComponent implements OnInit {
   submitNewClient(){
     console.log("kkkgfgfgdfgfd" + this.newClient);
     if ( this.password == this.user.password ){
-      this.customerService.addNewClient(this.newClient)
+
+      //async -wait for the id
+      this.customerService.addNewClient(this.newClient);
       this.userService.addNewClient(this.user);
     }
     else{

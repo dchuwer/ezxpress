@@ -26,7 +26,7 @@ export class AddMotoboyComponent implements OnInit {
   submitMotoBoy() {
     
     this.motoboy.photo = this.selectPhoto;
-    this.motoService.addMotoBoy(this.motoboy);
+    let index = this.motoService.addMotoBoy(this.motoboy);
     this.userService.addNewClient(this.user);
 
   }

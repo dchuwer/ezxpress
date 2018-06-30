@@ -9,6 +9,7 @@ class User {
     }
     initCustomer() {
         let user = DA.connection.define('users', {
+            userId: { type: Sequelize.INTEGER, primaryKey: true },
             userName: Sequelize.STRING,
             password: Sequelize.STRING,
             customerId: { type: Sequelize.INTEGER, references: { model: customers, key: 'customerId' }},

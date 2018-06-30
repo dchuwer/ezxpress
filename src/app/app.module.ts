@@ -40,6 +40,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { EditMotoComponent } from './edit-moto/edit-moto.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { BikeComponent } from './bike/bike.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     LoginComponent,
     EditMotoComponent,
     EditCustomerComponent,
+    BikeComponent
     
   ],
   imports: [

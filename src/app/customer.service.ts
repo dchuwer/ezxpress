@@ -36,12 +36,13 @@ export class CustomerService {
      })
   }
 
-  addNewClient(newClient : Customer){
-    this.http.post<Customer>('customersApi/add',newClient).subscribe(data => {
+  addNewClient(newClient : Customer) {
+    this.http.post<Customer>('customersApi/add',newClient).subscribe(data =>{
       this.currentCustomer = data[0];
-      this.singleCustomerSubject.next(data[0])
-      console.log(newClient)
-      console.log("a")
+      this.singleCustomerSubject.next(data[0]);
+      console.log('ttt'+data[0].customerId);
+      console.log('ppp'+this.currentCustomer.customerId);
+      return this.currentCustomer.customerId;
      })
     
   }

@@ -127,6 +127,8 @@ export class MotoService {
       //update motoboys array?
       this.currentMotoBoy = data;
       this.uploadPhoto(photo)
+      console.log(this.currentMotoBoy.motoboyId);
+      return this.currentMotoBoy.motoboyId;
     })
   }
 

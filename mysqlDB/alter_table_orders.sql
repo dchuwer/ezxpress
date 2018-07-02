@@ -1,2 +1,0 @@
-ALTER TABLE `sql12245391`.`orders` 
-ADD COLUMN `destAddress` VARCHAR(40) NULL DEFAULT NULL COMMENT '' AFTER `longitudeDestAddress`;

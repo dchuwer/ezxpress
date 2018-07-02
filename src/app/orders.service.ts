@@ -27,10 +27,6 @@ export class OrdersService {
     })
   }
   
-  findOrder(order_id) {  
-    return this.allOrders.find( order => order.orderId == order_id )
-  }
-  
   addNewOrder(order){
     console.log("inside Add")
     this.http.post<Order>('ordersApi/add',order).subscribe(() => {

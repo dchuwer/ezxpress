@@ -139,6 +139,7 @@ export class MotoService {
     // })
   }
 
+
   // Fucntions to Calculate a distance between 2 points =====>
 
   getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
@@ -159,7 +160,6 @@ export class MotoService {
     return deg * (Math.PI/180)
   }
 
-/// ================>
 
   uploadPhoto(photoFile) {
     

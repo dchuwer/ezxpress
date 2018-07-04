@@ -15,3 +15,8 @@ span{
  
     font: 15px 'Roboto', serif;
 }
+
+.click{
+    cursor: pointer;
+  }
+  

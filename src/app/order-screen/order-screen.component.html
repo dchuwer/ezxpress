@@ -35,6 +35,8 @@
             </mat-card-content>
 
             <mat-card-actions>
+                <mat-icon  class="click" *ngIf="order.motoboy === null && userType == 'motoboy'" (click)="handleChangeStatus(2)">add_circle</mat-icon>
+                   
                 <button *ngIf="order.motoboyId && currentUser.motoboyId" (click)="handleChangeStatus(3)">pickedup order</button>
                 <button *ngIf="order.motoboyId && currentUser.motoboyId" (click)="handleChangeStatus(4)">order deliverd</button>
 

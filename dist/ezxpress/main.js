@@ -566,12 +566,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit_customer_edit_customer_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./edit-customer/edit-customer.component */ "./src/app/edit-customer/edit-customer.component.ts");
 /* harmony import */ var _stars_stars_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./stars/stars.component */ "./src/app/stars/stars.component.ts");
 /* harmony import */ var _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./about-us/about-us.component */ "./src/app/about-us/about-us.component.ts");
+/* harmony import */ var _info_info_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./info/info.component */ "./src/app/info/info.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -598,6 +600,7 @@ var routes = [
     { path: 'table', component: _table_table_component__WEBPACK_IMPORTED_MODULE_6__["TableComponent"] },
     { path: 'star', component: _stars_stars_component__WEBPACK_IMPORTED_MODULE_11__["StarsComponent"] },
     { path: 'aboutUs', component: _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_12__["AboutUsComponent"] },
+    { path: 'info', component: _info_info_component__WEBPACK_IMPORTED_MODULE_13__["InfoComponent"] },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -633,7 +636,7 @@ module.exports = ".head {\r\n    font-family: 'Roboto', serif;\r\n    text-align
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "    \r\n<app-menu></app-menu>\r\n   \r\n<router-outlet></router-outlet>\r\n\r\n\r\n\r\n\r\n  \r\n\r\n"
+module.exports = "    \r\n\r\n   \r\n<router-outlet></router-outlet>\r\n\r\n\r\n\r\n\r\n  \r\n\r\n"
 
 /***/ }),
 
@@ -751,12 +754,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _menu_menu_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./menu/menu.component */ "./src/app/menu/menu.component.ts");
 /* harmony import */ var _msgsnack_msgsnack_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./msgsnack/msgsnack.component */ "./src/app/msgsnack/msgsnack.component.ts");
 /* harmony import */ var _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./about-us/about-us.component */ "./src/app/about-us/about-us.component.ts");
+/* harmony import */ var _info_info_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./info/info.component */ "./src/app/info/info.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -843,6 +848,7 @@ var AppModule = /** @class */ (function () {
                 _menu_menu_component__WEBPACK_IMPORTED_MODULE_51__["MenuComponent"],
                 _msgsnack_msgsnack_component__WEBPACK_IMPORTED_MODULE_52__["MsgsnackComponent"],
                 _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_53__["AboutUsComponent"],
+                _info_info_component__WEBPACK_IMPORTED_MODULE_54__["InfoComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -1664,7 +1670,7 @@ var EzxpressService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n.column {\r\n    float: left;\r\n    width: 33.33%;\r\n    height: auto;\r\n    padding: 5px;\r\n}\r\n\r\n/* Clearfix (clear floats) */\r\n\r\n.row:after {\r\n    content: \"\";\r\n    clear: both;\r\n    display: table;\r\n}\r\n\r\n.img-card {\r\n    max-height: 30vw;\r\n    min-height: 30vw;\r\n    max-width: 30vw;\r\n    min-width: 30vw;\r\n    margin-top: 4px;\r\n    margin-left: 4px;\r\n    margin-right: 4px;\r\n    margin-bottom: 4px;\r\n}\r\n\r\n.title{\r\n    font-family: 'Roboto', serif;\r\n}\r\n\r\nh5{\r\n    text-align: center;\r\n   \r\n}\r\n\r\nh6{\r\n    text-align: center;\r\n   \r\n}\r\n\r\n.space{\r\n    line-height: 10%; \r\n}\r\n\r\n"
+module.exports = "html, body\r\n{\r\n    height: 100%;\r\n}\r\n\r\n.container {\r\n    width:100%;\r\n    height:100%;\r\n    min-width: 1000px;\r\n    min-height: 600px;\r\n    margin-top: 0%;\r\n    margin-bottom: 0%;\r\n }\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n.column {\r\n    float: left;\r\n    width: 33.33%;\r\n    height: auto;\r\n    padding: 5px;\r\n}\r\n\r\n/* Clearfix (clear floats) */\r\n\r\n.row:after {\r\n    content: \"\";\r\n    clear: both;\r\n    display: table;\r\n}\r\n\r\n.img-card {\r\n    max-height: 30vw;\r\n    min-height: 30vw;\r\n    max-width: 30vw;\r\n    min-width: 30vw;\r\n    margin-top: 4px;\r\n    margin-left: 4px;\r\n    margin-right: 4px;\r\n    margin-bottom: 4px;\r\n}\r\n\r\n.title{\r\n    font-family: 'Roboto', serif;\r\n}\r\n\r\nh5{\r\n    text-align: center;\r\n   \r\n}\r\n\r\nh6{\r\n    text-align: center;\r\n   \r\n}\r\n\r\n.space{\r\n    line-height: 10%; \r\n}"
 
 /***/ }),
 
@@ -1675,7 +1681,7 @@ module.exports = "\r\n\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n.co
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"row w3-theme content\">\r\n    <div class=\"column img\">\r\n        <mat-card-title class=\"title\">\r\n            <div class=\"space\">\r\n                <h5>Step 1</h5>\r\n                <h6><span>Sign up for our service to place a new order in Express delivery</span></h6>\r\n            </div>\r\n        </mat-card-title>\r\n        <mat-card class=\"img-card\">\r\n            <img src=\"assets/img/express-delivery.jpg\"  alt=\"Express delivery\" width=\"100%\">\r\n        </mat-card>   \r\n    </div>\r\n    <div class=\"column img\">\r\n        <mat-card-title class=\"title\">\r\n            <div class=\"space\">\r\n                <h5>Step 2</h5>\r\n                <h6><span>A motoboy is quickly dispatched with your order</span></h6>\r\n            </div>\r\n        </mat-card-title>\r\n        <mat-card class=\"img-card\">\r\n            <img src=\"assets/img/delivery-service.jpg\"  alt=\"Delivery service\" width=\"100%\" >\r\n        </mat-card>\r\n    </div>\r\n    <div class=\"column img\">\r\n        <mat-card-title class=\"title\">\r\n            <div class=\"space\">\r\n                <h5>Step 3</h5>\r\n                <h6><span>And delivers your package to its destination</span></h6>\r\n            </div>\r\n        </mat-card-title>\r\n        <mat-card class=\"img-card\">\r\n            <img src=\"assets/img/delivery-done.jpg\"  alt=\"Service done\" width=\"100%\">\r\n        </mat-card>\r\n    </div>\r\n</div>    \r\n\r\n"
+module.exports = "<div class=\"container\">\r\n    <app-menu></app-menu>\r\n    <div class=\"row w3-theme content\">\r\n        <div class=\"column img\">\r\n            <mat-card-title class=\"title\">\r\n                <div class=\"space\">\r\n                    <h5>Step 1</h5>\r\n                    <h6><span>You contact our service to place a new order</span></h6>\r\n                </div>\r\n            </mat-card-title>\r\n            <mat-card class=\"img-card\">\r\n                <img src=\"assets/img/express-delivery.jpg\"  alt=\"Express delivery\" width=\"100%\">\r\n            </mat-card>   \r\n        </div>\r\n        <div class=\"column img\">\r\n            <mat-card-title class=\"title\">\r\n                <div class=\"space\">\r\n                    <h5>Step 2</h5>\r\n                    <h6><span>A motoboy is quickly dispatched with your order</span></h6>\r\n                </div>\r\n            </mat-card-title>\r\n            <mat-card class=\"img-card\">\r\n                <img src=\"assets/img/delivery-service.jpg\"  alt=\"Delivery service\" width=\"100%\" >\r\n            </mat-card>\r\n        </div>\r\n        <div class=\"column img\">\r\n            <mat-card-title class=\"title\">\r\n                <div class=\"space\">\r\n                    <h5>Step 3</h5>\r\n                    <h6><span>And delivers your package to its destination</span></h6>\r\n                </div>\r\n            </mat-card-title>\r\n            <mat-card class=\"img-card\">\r\n                <img src=\"assets/img/delivery-done.jpg\"  alt=\"Service done\" width=\"100%\">\r\n            </mat-card>\r\n        </div>\r\n    </div>    \r\n    \r\n    \r\n</div>\r\n\r\n\r\n<div class=\"row w3-theme content\">\r\n    <div class=\"column img\">\r\n        <mat-card-title class=\"title\">\r\n            <div class=\"space\">\r\n                <h5>Step 1</h5>\r\n                <h6><span>Sign up for our service to place a new order in Express delivery</span></h6>\r\n            </div>\r\n        </mat-card-title>\r\n        <mat-card class=\"img-card\">\r\n            <img src=\"assets/img/express-delivery.jpg\"  alt=\"Express delivery\" width=\"100%\">\r\n        </mat-card>   \r\n    </div>\r\n    <div class=\"column img\">\r\n        <mat-card-title class=\"title\">\r\n            <div class=\"space\">\r\n                <h5>Step 2</h5>\r\n                <h6><span>A motoboy is quickly dispatched with your order</span></h6>\r\n            </div>\r\n        </mat-card-title>\r\n        <mat-card class=\"img-card\">\r\n            <img src=\"assets/img/delivery-service.jpg\"  alt=\"Delivery service\" width=\"100%\" >\r\n        </mat-card>\r\n    </div>\r\n    <div class=\"column img\">\r\n        <mat-card-title class=\"title\">\r\n            <div class=\"space\">\r\n                <h5>Step 3</h5>\r\n                <h6><span>And delivers your package to its destination</span></h6>\r\n            </div>\r\n        </mat-card-title>\r\n        <mat-card class=\"img-card\">\r\n            <img src=\"assets/img/delivery-done.jpg\"  alt=\"Service done\" width=\"100%\">\r\n        </mat-card>\r\n    </div>\r\n</div>    \r\n\r\n"
 
 /***/ }),
 
@@ -1715,6 +1721,69 @@ var HomeComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], HomeComponent);
     return HomeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/info/info.component.css":
+/*!*****************************************!*\
+  !*** ./src/app/info/info.component.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "h1{\r\n    text-align: center;\r\n    color: black;\r\n}\r\n.column{\r\n    display: flex;\r\n    flex-direction: row;\r\n    }\r\n.img-card{\r\n    width: 50%;\r\n}\r\n.m{\r\n    width: 25%;\r\n}\r\n\r\n\r\n"
+
+/***/ }),
+
+/***/ "./src/app/info/info.component.html":
+/*!******************************************!*\
+  !*** ./src/app/info/info.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\r\n<h1>The site was built using technologies:</h1>\r\n<div class=\"column\">\r\n    <div class=\"m\"></div>\r\n    <mat-card class=\"img-card\">\r\n        <img src=\"assets/img/info.jpg\"  width=\"100%\">\r\n    </mat-card> \r\n    <div class=\"m\"></div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/info/info.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/info/info.component.ts ***!
+  \****************************************/
+/*! exports provided: InfoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InfoComponent", function() { return InfoComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var InfoComponent = /** @class */ (function () {
+    function InfoComponent() {
+    }
+    InfoComponent.prototype.ngOnInit = function () {
+    };
+    InfoComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-info',
+            template: __webpack_require__(/*! ./info.component.html */ "./src/app/info/info.component.html"),
+            styles: [__webpack_require__(/*! ./info.component.css */ "./src/app/info/info.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], InfoComponent);
+    return InfoComponent;
 }());
 
 
@@ -2023,7 +2092,7 @@ var MaprouteComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".head {\r\n    font-family: 'Roboto', serif;\r\n    text-align: center;\r\n    letter-spacing: 5px;\r\n    width: 100%;\r\n    max-height: 50px;\r\n    height: 100%;\r\n}\r\n\r\n.menu {\r\n    text-align: left;\r\n}\r\n\r\n.white-icon {\r\n    color: white;\r\n}\r\n\r\n.app-user-connected{\r\n   padding-left: 40px;\r\n   padding-top: 3px;\r\n}\r\n\r\n"
+module.exports = "h1 {\r\n    font-size: 2em;\r\n    font-weight: bold;\r\n    margin-top: 0%\r\n    \r\n}\r\n\r\n.head {\r\n    font-family: 'Roboto', serif;\r\n    text-align: center;\r\n    letter-spacing: 5px;\r\n    width: 100%;\r\n    max-height: 50px;\r\n    height: 100%;\r\n}\r\n\r\n.menu {\r\n    text-align: left;\r\n}\r\n\r\n.white-icon {\r\n    color: white;\r\n}\r\n\r\n.app-user-connected{\r\n   padding-left: 40px;\r\n   padding-top: 3px;\r\n}\r\n\r\n"
 
 /***/ }),
 
@@ -2034,7 +2103,7 @@ module.exports = ".head {\r\n    font-family: 'Roboto', serif;\r\n    text-align
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"w3-theme\" id=\"container\">\r\n    <div class=\"app-user-connected\">\r\n    <app-user-connected></app-user-connected>\r\n    </div>\r\n    <div class=\"head\" >\r\n        <h1>EzExpress</h1>\r\n        <h2>Because it's easy to receive your package with our service</h2>\r\n    </div>\r\n    <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n        <mat-icon>reorder</mat-icon>\r\n    </button>\r\n    <mat-menu #menu=\"matMenu\" class=\"w3-theme\">\r\n        <button class=\"white-icon\" mat-menu-item routerLink=\"\">\r\n            <mat-icon>home</mat-icon>\r\n            <span>Home Page</span>\r\n        </button>\r\n        <div class=\"menupart\" *ngIf=\"userType\">\r\n            <button class=\"white-icon\" mat-menu-item routerLink=\"/profile\">\r\n                <mat-icon>account_circle</mat-icon>\r\n                <span>My profile</span>\r\n            </button>\r\n\r\n            <button class=\"white-icon\" mat-menu-item routerLink=\"/table\">\r\n                <mat-icon>mail</mat-icon>\r\n                <span *ngIf=\"userType === 'customer'\"> My orders</span>\r\n                <span *ngIf=\"userType === 'motoboy'\"> Open orders</span>\r\n            </button>\r\n            <button *ngIf=\"userType === 'customer'\" class=\"white-icon\" mat-menu-item routerLink=\"/add-delivery\">\r\n                <mat-icon>send</mat-icon>\r\n                <span>Xpress Delivery</span>\r\n            </button>\r\n            <button  class=\"white-icon\" mat-menu-item routerLink=\"/aboutUs\">\r\n                <mat-icon>group</mat-icon>\r\n                <span>About Us</span>\r\n            </button>\r\n            <button class=\"white-icon\" mat-menu-item (click)=\"this.authService.logoff()\">\r\n                <mat-icon>exit_to_app</mat-icon>\r\n                <span>Logout</span>\r\n            </button>\r\n        </div>\r\n        \r\n        <button *ngIf='currentUser == null' class=\"white-icon\" mat-menu-item routerLink=\"/login\">\r\n            <mat-icon>how_to_reg</mat-icon>\r\n            <span>Signin/Signup</span>\r\n        </button>\r\n        \r\n      \r\n    </mat-menu>\r\n</div>"
+module.exports = "<div class=\"w3-theme\" id=\"container\">\r\n\r\n    <div class=\"app-user-connected\">\r\n    <app-user-connected></app-user-connected>\r\n    </div>\r\n\r\n    <div class=\"head\" >\r\n        <app-user-connected></app-user-connected>\r\n        <h1>EzExpress</h1>\r\n        <h2>Because it's easy to receive your package with our service</h2>\r\n    </div>\r\n    <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n        <mat-icon>reorder</mat-icon>\r\n    </button>\r\n    <mat-menu #menu=\"matMenu\" class=\"w3-theme\">\r\n        <button class=\"white-icon\" mat-menu-item routerLink=\"\">\r\n            <mat-icon>home</mat-icon>\r\n            <span>Home Page</span>\r\n        </button>\r\n        <button  class=\"white-icon\" mat-menu-item routerLink=\"/aboutUs\">\r\n            <mat-icon>group</mat-icon>\r\n            <span>About Us</span>\r\n        </button>\r\n        <button  class=\"white-icon\" mat-menu-item routerLink=\"/info\">\r\n            <mat-icon>info</mat-icon>\r\n            <span>Info</span>\r\n        </button>\r\n        <div class=\"menupart\" *ngIf=\"userType\">\r\n            <button class=\"white-icon\" mat-menu-item routerLink=\"/profile\">\r\n                <mat-icon>account_circle</mat-icon>\r\n                <span>My profile</span>\r\n            </button>\r\n\r\n            <button class=\"white-icon\" mat-menu-item routerLink=\"/table\">\r\n                <mat-icon>mail</mat-icon>\r\n                <span *ngIf=\"userType === 'customer'\"> My orders</span>\r\n                <span *ngIf=\"userType === 'motoboy'\"> Open orders</span>\r\n            </button>\r\n            <button *ngIf=\"userType === 'customer'\" class=\"white-icon\" mat-menu-item routerLink=\"/add-delivery\">\r\n                <mat-icon>send</mat-icon>\r\n                <span>Xpress Delivery</span>\r\n            </button>\r\n            <button  class=\"white-icon\" mat-menu-item routerLink=\"/aboutUs\">\r\n                <mat-icon>group</mat-icon>\r\n                <span>About Us</span>\r\n            </button>\r\n            <button class=\"white-icon\" mat-menu-item (click)=\"this.authService.logoff()\">\r\n                <mat-icon>exit_to_app</mat-icon>\r\n                <span>Logout</span>\r\n            </button>\r\n        </div>\r\n\r\n        <button *ngIf='currentUser == null' class=\"white-icon\" mat-menu-item routerLink=\"/login\">\r\n            <mat-icon>how_to_reg</mat-icon>\r\n            <span>Signin/Signup</span>\r\n        </button>\r\n\r\n      \r\n    </mat-menu>\r\n</div>"
 
 /***/ }),
 
@@ -3395,7 +3464,7 @@ var TableComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".head {\r\n    font-family: 'Roboto', serif;\r\n    text-align: center;\r\n    letter-spacing: 5px;\r\n    width: 100%;\r\n    flex: row ;\r\n}\r\n\r\n.menu {\r\n    padding-left: 30px;\r\n    text-align: left;\r\n}\r\n\r\n.white-icon {\r\n    color: white;\r\n}\r\n\r\n.space{\r\n    width: 10%;\r\n}\r\n"
+module.exports = "/* .head {\r\n    font-family: 'Roboto', serif;\r\n    text-align: center;\r\n    letter-spacing: 5px;\r\n    width: 100%;\r\n\r\n    flex: row ;\r\n}\r\n\r\n\r\n/* .menu {\r\n    padding-left: 30px;\r\n    text-align: left;\r\n} */\r\n\r\n/* .white-icon {\r\n    color: white;\r\n} */\r\n\r\n.space{\r\n    width: 10%;\r\n}\r\n"
 
 /***/ }),
 

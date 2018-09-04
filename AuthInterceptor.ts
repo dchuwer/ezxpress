@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
                 next: HttpHandler): Observable<HttpEvent<any>> {
         
           const idToken = localStorage.getItem("token");
-
+         
           if (idToken) {
               const cloned = req.clone({
                   headers: req.headers.set("Authorization",

@@ -1,4 +1,4 @@
-use ezxpress;
+use id6444606_ezxpress;
  
 CREATE TABLE customers (
   customerId INT AUTO_INCREMENT PRIMARY KEY, 

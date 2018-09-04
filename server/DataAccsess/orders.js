@@ -13,7 +13,7 @@ class Order {
     }
     initCustomer() {
         let order = DA.connection.define('orders', {
-            orderId: { type: Sequelize.INTEGER, primaryKey: true },
+            orderId: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
 
             customerId: { type: Sequelize.INTEGER, references: { model: Customer, key: 'customerId' } },
             motoboyId: { type: Sequelize.INTEGER, references: { model: Motoboy, key: 'motoboyId' } },
@@ -23,16 +23,10 @@ class Order {
             latitudeDestAddress: Sequelize.FLOAT,
             longitudeDestAddress: Sequelize.FLOAT,
 
-            customerId: { type: Sequelize.INTEGER, references: { model: Customer, key: 'customerId' } },
-            motoboyId: { type: Sequelize.INTEGER, references: { model: Motoboy, key: 'motoboyId' } },
-            localAddress: Sequelize.STRING,
-            latitudeOriginAddress: Sequelize.FLOAT,
-            longitudeOriginAddress: Sequelize.FLOAT,
-            latitudeDestAddress: Sequelize.FLOAT,
-            longitudeDestAddress: Sequelize.FLOAT,
+            
             destAddress: Sequelize.STRING,
 
-            price: Sequelize.INTEGER,
+            price: Sequelize.FLOAT,
             orderDate: Sequelize.DATE,
             collectDate: Sequelize.DATE,
             deliveryDate: Sequelize.DATE,
@@ -93,7 +87,9 @@ class Order {
         return this.model.create(data);
     }
     update(newdata, id) {
-        return this.model.update(newdata, { where: { orderId: id } });
+        console.log("updatinggggg.......")
+        console.log(newdata)
+        return this.model.update({motoboyId: newdata.motoboyId, statusId: newdata.statusId}, { where: { orderId: id } });
     }
     delete(id) {
         return this.model.destroy({

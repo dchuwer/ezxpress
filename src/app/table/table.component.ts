@@ -64,7 +64,6 @@ export class TableComponent implements OnInit {
     //let companySelected = this.companyService.findCompany(client.company_id)
     //client.company = companySelected.name;
 
-
     let dialogRef = this.dialog.open(OrderScreenComponent, {
       width: '900px',
       data: order

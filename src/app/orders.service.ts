@@ -11,11 +11,11 @@ import { Router } from '@angular/router';
 export class OrdersService {
   formData: any = new FormData();
   allOrders: Array<Order> = [];
-  allOrdersSbject: Subject<Order[]> = new Subject<Order[]>();
+  allOrdersSubject: Subject<Order[]> = new Subject<Order[]>();
   allOrdersObservable: Observable<Order[]>;
 
   constructor(private http: HttpClient, public snackBar: MatSnackBar, private router: Router) {
-    this.allOrdersObservable = this.allOrdersSbject.asObservable();
+    this.allOrdersObservable = this.allOrdersSubject.asObservable();
     this.getAllOrders()
    }
 
@@ -25,7 +25,7 @@ export class OrdersService {
     this.http.get<Order[]>(this.OrdersServiceUrl).subscribe((orders) => {
       this.allOrders = orders;
       console.log(orders)
-      this.allOrdersSbject.next(orders)
+      this.allOrdersSubject.next(this.allOrders)
     })
   }
   
@@ -35,9 +35,11 @@ export class OrdersService {
   
   addNewOrder(order){
     console.log("inside Add")
-    this.http.post<Order>('ordersApi/add',order).subscribe(() => {
-      // this.allOrders.push(order);
-      this.getAllOrders();
+    this.http.post<any>('ordersApi/add',order).subscribe((data) => {
+      console.log(data)
+      this.allOrders.push(data);
+      this.allOrdersSubject.next(this.allOrders)
+      //this.getAllOrders();
     })
   }
   // addNewOrder(newOrder: Order): void{
@@ -57,29 +59,36 @@ export class OrdersService {
 
   updateOrder(data, id) {
     console.log(id)
-    this.http.put<Order>(`ordersApi/update/${id}`, data).subscribe(() => {
+    this.http.put<any>(`ordersApi/update/${id}`, data).subscribe(( data) => {
+      
       console.log("order was updated"+ id)
-      this.getAllOrders();
+      this.allOrders = data
+      this.allOrdersSubject.next(this.allOrders)
+      //this.getAllOrders();
     })
   }
 
   sendSmsToCustomer(order: Order){
-     this.http.post('/send', {
-      from: 'Acme Inc',
-      to: order.phoneNumber,
-      text: 'motoBoy on the way!'
-    }).subscribe((data) => {
-      console.log(data)
-    })
+
+    console.log("Send SMS ...")
+    //  this.http.post('/send', {
+    //   from: 'Acme Inc',
+    //   to: order.phoneDestination,
+    //   text: 'motoBoy on the way!'
+    // }).subscribe((data) => {
+    //   console.log(data)
+    // })
   }
 
   updateStatus(order,newStatus, motoBoy) {
       order.motoboyId = motoBoy.motoboyId;
       order.statusId = newStatus;
-      
+      console.log(newStatus)
       this.updateOrder(order,order.orderId)
-      // this.sendSmsToCustomer(order);----------------------------------SMS----------------------
-      //Needs to be define 
+      if(newStatus===2){
+        console.log("sending SMS .....")
+        //this.sendSmsToCustomer(order)
+      }
     
     
   }

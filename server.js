@@ -126,7 +126,7 @@ app.post('/send', (req, res) => {
 //Function used to configure the middleware storage
 var storage = multer.diskStorage({
   destination: function(req, file, callback){
-      callback(null, './dist/ezxpress/assets/uploads'); // set the destination
+      callback(null, '/dist/ezxpress/assets/uploads'); // set the destination
   },
   filename: function(req, file, callback){
       
@@ -194,7 +194,7 @@ app.post('/sendEmail', (req, res) => {
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
   console.log('yooooo')
-  res.sendFile(path.join(__dirname, 'dist/ezxpress/index.html'));
+  res.sendFile(path.join(__dirname, '/dist/ezxpress/index.html'));
 });
 
 /**

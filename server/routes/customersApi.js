@@ -33,7 +33,7 @@ router.post('/add', (req, res) => {
     let pw = req.body.password
     
     customer.create(req.body).then(result => {
-            
+            console.log(result)
             let dataToSend = {userName: username,customerId: result.customerId,password : pw}
             
             users.model.create(dataToSend)

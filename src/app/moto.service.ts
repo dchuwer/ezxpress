@@ -104,8 +104,10 @@ export class MotoService {
     var latlng = {lat: lat , lng: lng};
     geocoder.geocode({"location": latlng }, (results, status) => {
         console.log(results)
-     
-        this.localAddress = results[0].formatted_address
+        if(results.length>0)
+          this.localAddress = results[0].formatted_address
+        else
+          this.localAddress = ""
         console.log(this.localAddress)
         this.addressSubject.next({localAddress: this.localAddress, lat: lat, lng: lng})
         

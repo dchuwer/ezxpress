@@ -27,7 +27,7 @@ router.get('/',checkIfAuthenticated, (req, res) => {
 
 router.post('/add', (req, res) => {
     order.create(req.body).then(data => {
-    res.send(JSON.stringify(data));
+        res.send((data));
   }).catch((error) => {
     res.send("error:" + error)
 });
@@ -37,10 +37,14 @@ router.post('/add', (req, res) => {
      dataUpdate = req.body
      orderId = req.params.id;
      console.log(orderId)
-     order.update(dataUpdate, orderId).then(data => {
-        res.send(JSON.stringify(data));
+     order.update(dataUpdate, orderId).then( () => {
+        order.getAll().then( data => { 
+            console.log("volta do update ...")
+            console.log(data)
+          res.send((data));
+         })
         })  
-        err => {
+    err => {
             console.error(err)
           } 
  });

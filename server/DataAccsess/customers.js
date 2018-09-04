@@ -41,6 +41,7 @@ class Customer {
         });   
     }       
     create(data){
+        console.log("entreiiiiiiiiiii......")
         return this.model.create(data)
     }
     update(newData,id){

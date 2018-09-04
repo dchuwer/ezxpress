@@ -40,8 +40,8 @@ export class CustomerService {
   }
 
   addNewClient(newClient : Customer){
+   
     this.http.post<Customer>('customersApi/add',newClient).subscribe(data => {
-      
       this.currentCustomer = data;
       this.currentCustomer.userName = newClient.userName;
       this.currentCustomer.password = newClient.password

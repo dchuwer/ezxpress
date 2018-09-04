@@ -3,12 +3,13 @@ var Sequelize = require('sequelize');
 
 class DataAccess  {
 
-  constructor() {
-      this.connection = new Sequelize('sql12245391', 'sql12245391', 'dzUyt7gYAw', {
-        host: 'sql12.freemysqlhosting.net',
+  constructor() {  
+      debugger
+      this.connection = new Sequelize('sql7255176', 'sql7255176', 'iZl2vQC7er', {
+        host: 'sql7.freemysqlhosting.net',
         dialect: 'mysql',
 
-       
+           
         pool: {
           max: 5,
           min: 0,
